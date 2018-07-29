@@ -11,6 +11,7 @@
          .container img {
          width: 100%;
          height: auto;
+         padding: 0;
          }
          .container .btn {
          position: absolute;
@@ -72,6 +73,8 @@
          padding: 20px;
          }
       </style>
+
+      <script src='jquery.min.js'></script>
    </head>
    <body>
       <div id = 'navbar'>
@@ -89,33 +92,23 @@
          <h2>Classes</h2>
          <p>Add a button to an image:</p>
          <table style="width:100%">
-            <tr>
-               <td>
-                  <div class="container">
-                     <img src="images/CS61A.jpg" alt="Snow">
-                     <a href="calendar.html"><button class="btn">CS61A</button></a>
-                  </div>
-               </td>
-               <td>
-                  <div class="container">
-                     <img src="images/CS61B.jpg" alt="Snow">
-                     <a href="calendar.html"><button class="btn">CS61B</button></a>
-                  </div>
-               </td>
-               <td>
-                  <div class="container">
-                     <img src="images/CS61C.jpg" alt="Snow">
-                     <a href="calendar.html"><button class="btn">CS61C</button></a>
-                  </div>
-               </td>
-               <td>
-                  <div class="container">
-                     <img src="images/CS70.jpg" alt="Snow">
-                     <a href="calendar.html"><button class="btn">CS70</button></a>
-                  </div>
-               </td>
-            </tr>
+            <tr id="class_row"></tr>
          </table>
       </div>
+      <script type="text/javascript">
+         $.get('https://cramjam.herokuapp.com/all-classes', function(classes) {
+            for (var i = 0; i < classes.length; i++) {
+               var clazz = classes[i]
+               $('#class_row').append(`<td>
+                  <div class="container">
+                     <img src="images/${clazz.name}.jpg" alt="Snow">
+                     <a href="calendar.html"><button class="btn">${clazz.name}</button></a>
+                  </div>
+                  <h4>Professor ${clazz.professor}</h4>
+                  <h4>Semester: ${clazz.semester}</h4>
+               <td>`)
+            }
+         })
+      </script>
    </body>
 </html>
