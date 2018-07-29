@@ -7,8 +7,60 @@
          https://developers.google.com/maps/documentation/javascript/tutorial
     -->
     <link rel="stylesheet" href="https://developers.google.com/maps/documentation/javascript/cgc/demos.css">
+    <style>
+    body {
+         margin:0;
+         padding:0;
+         font-family: Georgia;
+         }
+         #navbar ul {
+         list-style-type: none;
+         margin: 0;
+         padding-left: 80;
+         overflow: hidden;
+         background-color: #5b9aff;
+         position: -webkit-sticky; /* Safari */
+         position: sticky;
+         top: 0;
+         }
+         p {
+         font-size: 12;
+         }
+         #navbar li  {
+         float: left;
+         }
+         #navbar li p {
+         display: block;
+         color: white;
+         text-align: center;
+         padding: 2px 16px;
+         text-decoration: none;
+         }
+         #navbar li a {
+         display: block;
+         color: white;
+         text-align: center;
+         padding: 18px 16px;
+         text-decoration: none;
+         }
+         #navbar li a:hover {
+         background-color: #538fef;
+         }
+         #courses {
+         padding: 20px;
+         }
+       </style>
   </head>
   <body>
+    <div id = 'navbar'>
+    <ul>
+      <li><p>CramJam</p></li>
+        <li><a href="cramjam.html">Home</a></li>
+        <li><a href="googlemaps.html">Locations</a></li>
+        <li><a href="schoolbuttons.html">Go To Classes</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+  </div>
     <div id="map"></div>
     <script>
       function initMap() {
