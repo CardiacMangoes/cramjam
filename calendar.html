@@ -7,6 +7,15 @@
   <script src='jquery.min.js'></script>
   <script src='moment.js'></script>
   <script src='fullcalendar.js'></script>
+
+  <style type="text/css">
+    #map{ width:700px; height: 500px; }
+  </style>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+  <link rel="stylesheet" href="tingle.min.css">
+  <script src="tingle.min.js"></script>
+
   <style>
       body {
       margin:0;
@@ -69,15 +78,17 @@
   </head>
   <body>
     <div id = 'navbar'>
-    <ul>
-      <li><img src="images/cramjam.png" alt="cramjam" width="86"></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="googlemaps.html">Locations</a></li>
-        <li><a href="schoolbuttons.html">Go To Classes</a></li>
-        <li style="float:right; padding-top: 6px;"><img src="images/cal.jpg" alt="cramjam" width="40"></li>
-        <li style="float:right"><p>Oski</p></li>
-    </ul>
-  </div>
+      <ul>
+        <li><img src="images/cramjam.png" alt="cramjam" width="86"></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="googlemaps.html">Locations</a></li>
+          <li><a href="schoolbuttons.html">Go To Classes</a></li>
+          <li style="float:right; padding-top: 6px;"><img src="images/cal.jpg" alt="cramjam" width="40"></li>
+          <li style="float:right"><p>Oski</p></li>
+      </ul>
+    </div>
+
+
 
     <div id="calen">
       <script>
@@ -85,8 +96,9 @@
           var events = []
           for (var i = 0; i < meetings.length; i++) {
             var meeting = meetings[i]
+            var title = meeting.location === "virtual" ? "Virual study group meeting" : "Study group meeting @ " + meeting.location
             events.push({
-              title: "Event " + i,
+              title: title,
               start: meeting.start_date_time,
               end: meeting.end_date_time,
               allDay: false
@@ -98,9 +110,46 @@
             events: events,
             eventClick: function(calEvent, jsEvent, view) {
               console.log(calEvent);
+
+            },
+            customButtons: {
+              addEventButton: {
+                text: 'Add meeting',
+                click: function() {
+
+                  var start_DT = prompt("Starting time of meeting: ")
+                  var duration = prompt("Duration of meeting: ")
+
+                  var modal = new tingle.modal({
+                      footer: true,
+                      stickyFooter: false,
+                      closeMethods: ['overlay', 'button', 'escape'],
+                      closeLabel: "Close",
+                      cssClass: ['custom-class-1', 'custom-class-2'],
+                      onOpen: function() {
+                          console.log('modal open');
+                      },
+                      onClose: function() {
+                          console.log('modal closed');
+                      },
+                      beforeClose: function() {
+                          // here's goes some logic
+                          // e.g. save content before closing the modal
+                          return true; // close the modal
+                          return false; // nothing happens
+                      }
+                  });
+
+                  modal.setContent('<div id="map"></div><h2>Chosen Location</h2><div id="fuck"></div><script src="latlong-chooser.js"></script>');
+
+                  modal.open();
+                }
+              }
             },
             header: {
-              center: 'addEventButton'
+              left: 'prev,next today addEventButton',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay'
             }
           });
         })
