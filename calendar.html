@@ -81,8 +81,7 @@
 
     <div id="calen">
       <script>
-        $.get('https://cramjam.herokuapp.com/study-groups', function(study_groups) {
-          var meetings = study_groups[0].meetings
+        $.get('https://cramjam.herokuapp.com/meetings-detailed-list', function(meetings) {
           var events = []
           for (var i = 0; i < meetings.length; i++) {
             var meeting = meetings[i]
@@ -99,11 +98,10 @@
             events: events,
             eventClick: function(calEvent, jsEvent, view) {
               console.log(calEvent);
-            }, 
-
-             header: {
-      center: 'addEventButton'
-    }
+            },
+            header: {
+              center: 'addEventButton'
+            }
           });
         })
       </script>
