@@ -4,4 +4,3 @@ What is CramJam?
   Thanks to the power of Agora's api, this program allows the users to hold video chats in order to perform things such as screen sharing,
     allowing them to view a document together when not congreated at a single area, or one on one tutoring between two users.
     
-    
