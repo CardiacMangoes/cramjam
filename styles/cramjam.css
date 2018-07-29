@@ -4,7 +4,7 @@ body {
 	font-family: Georgia;
 }
 
-ul {
+#navbar ul {
     list-style-type: none;
     margin: 0;
     padding-left: 80;
@@ -15,23 +15,25 @@ ul {
     top: 0;
 }
 
-p {
+#navbar p {
 	font-size: 12;
 }
 
-li {
+#navbar li {
     float: left;
 }
 
-li img {
+#navbar li img {
 	display: block;
     color: white;
     text-align: center;
-    padding: 2px 8px;
+    padding-top: 2px;
+    padding-right: 16px;
+    border-radius: 100%;
     text-decoration: none;
 }
 
-li a {
+#navbar li a {
     display: block;
     color: white;
     text-align: center;
@@ -39,7 +41,15 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+#navbar li p {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 24px;
+    text-decoration: none;
+}
+
+#navbar li a:hover {
     background-color: #538fef;
 }
 

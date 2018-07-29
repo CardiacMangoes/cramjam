@@ -13,45 +13,54 @@
       padding:0;
       font-family: Georgia;
     }
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 80;
+    overflow: hidden;
+    background-color: #5b9aff;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding-left: 80;
-      overflow: hidden;
-      background-color: #5b9aff;
-      position: -webkit-sticky; /* Safari */
-      position: sticky;
-      top: 0;
-    }
+#navbar p {
+  font-size: 12;
+}
 
-    p {
-      font-size: 12;
-    }
+#navbar li {
+    float: left;
+}
 
-    li {
-      float: left;
-    }
+#navbar li img {
+  display: block;
+    color: white;
+    text-align: center;
+    padding-top: 2px;
+    padding-right: 16px;
+    border-radius: 100%;
+    text-decoration: none;
+}
 
-    li p {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 2px 16px;
-      text-decoration: none;
-    }
+#navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+}
 
-    li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 18px 16px;
-      text-decoration: none;
-    }
+#navbar li p {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 24px;
+    text-decoration: none;
+}
 
-    li a:hover {
-      background-color: #538fef;
-    }
+#navbar li a:hover {
+    background-color: #538fef;
+}
 
     #calen {
       padding: 20px;
@@ -59,15 +68,16 @@
   </style>
   </head>
   <body>
-    <div id='navbar'>
-      <ul>
-        <li><p>CramJam</p></li>
-          <li><a href="cramjam.html">Home</a></li>
-          <li><a href="googlemaps.html">Locations</a></li>
-          <li><a href="schoolbuttons.html">Go To Classes</a></li>
-          <li><a href="#about">About</a></li>
-      </ul>
-    </div>
+    <div id = 'navbar'>
+    <ul>
+      <li><img src="images/cramjam.png" alt="cramjam" width="86"></li>
+        <li><a href="cramjam.html">Home</a></li>
+        <li><a href="googlemaps.html">Locations</a></li>
+        <li><a href="schoolbuttons.html">Go To Classes</a></li>
+        <li style="float:right; padding-top: 6px;"><img src="images/cal.jpg" alt="cramjam" width="40"></li>
+        <li style="float:right"><p>Oski</p></li>
+    </ul>
+  </div>
 
     <div id="calen">
       <script>
