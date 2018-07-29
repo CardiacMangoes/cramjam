@@ -1,0 +1,7 @@
+What is CramJam?
+  CramJam is a program that helps students find study groups for their classes. Users can form study groups with those who are in the same
+    class. They can find like minded students in order to prepare for an upcoming exam or homework assignment at a location they agree on. 
+  Thanks to the power of Agora's api, this program allows the users to hold video chats in order to perform things such as screen sharing,
+    allowing them to view a document together when not congreated at a single area, or one on one tutoring between two users.
+    
+    
