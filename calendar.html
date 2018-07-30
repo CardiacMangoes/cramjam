@@ -88,8 +88,6 @@
       </ul>
     </div>
 
-
-
     <div id="calen">
       <script>
         $.get('https://cramjam.herokuapp.com/meetings-detailed-list', function(meetings) {
@@ -110,39 +108,14 @@
             events: events,
             eventClick: function(calEvent, jsEvent, view) {
               console.log(calEvent);
-
             },
             customButtons: {
               addEventButton: {
                 text: 'Add meeting',
                 click: function() {
-
                   var start_DT = prompt("Starting time of meeting: ")
                   var duration = prompt("Duration of meeting: ")
 
-                  var modal = new tingle.modal({
-                      footer: true,
-                      stickyFooter: false,
-                      closeMethods: ['overlay', 'button', 'escape'],
-                      closeLabel: "Close",
-                      cssClass: ['custom-class-1', 'custom-class-2'],
-                      onOpen: function() {
-                          console.log('modal open');
-                      },
-                      onClose: function() {
-                          console.log('modal closed');
-                      },
-                      beforeClose: function() {
-                          // here's goes some logic
-                          // e.g. save content before closing the modal
-                          return true; // close the modal
-                          return false; // nothing happens
-                      }
-                  });
-
-                  modal.setContent('<div id="map"></div><h2>Chosen Location</h2><div id="fuck"></div><script src="latlong-chooser.js"></script>');
-
-                  modal.open();
                 }
               }
             },
